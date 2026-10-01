@@ -1,36 +1,145 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ragnar
 
-## Getting Started
+Ragnar es un espacio de trabajo personal para organizar tareas, pendientes y proyectos utilizando principios de **GTD (Getting Things Done)**.
 
-First, run the development server:
+La idea es mantener en un solo lugar aquello que necesita atención, separar las acciones concretas de los pendientes futuros y reducir la fricción entre capturar algo y convertirlo en una acción.
+
+## ✨ Características
+
+### Tareas
+
+- Captura y gestión de tareas.
+- Estados basados en GTD:
+  - **Inbox**
+  - **Next Actions**
+  - **Calendar**
+  - **Waiting**
+  - **Someday**
+  - **Completed**
+  - **Archived**
+- Tareas destacadas.
+- Descripción de tareas.
+- Contextos:
+  - Digital
+  - Casa
+  - Trabajo
+  - Fuera
+- Fechas de vencimiento.
+- Indicadores visuales para tareas vencidas y próximas.
+- Subtareas con estados pendientes y completadas.
+
+### 🔎 Organización
+
+- Búsqueda de tareas.
+- Filtrado por contexto.
+- Agrupación por estado.
+- Contador de tareas por estado.
+- Estados vacíos para mantener clara la interfaz.
+
+### 📅 Calendario
+
+Las tareas que tienen una fecha pueden gestionarse desde el calendario.
+
+Incluye:
+
+- Vista mensual.
+- Vista de lista.
+- Navegación entre meses.
+- Acceso rápido al día actual.
+- Visualización de eventos por día.
+- Acceso a las tareas de un día desde el calendario.
+
+Las tareas asociadas al calendario se mantienen separadas de la lista principal de acciones.
+
+## 🔐 Autenticación
+
+Ragnar utiliza autenticación mediante **Supabase** y permite iniciar sesión utilizando Google.
+
+La sesión se mantiene mediante Supabase Auth y determina el acceso al espacio de trabajo.
+
+## 🛠️ Tecnologías
+
+- **Next.js**
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Supabase**
+- **Lucide React**
+
+## 📁 Organización
+
+El proyecto está organizado separando componentes, hooks, tipos y lógica de dominio para facilitar su mantenimiento y reutilización.
+
+Una parte importante de la arquitectura es mantener la lógica de negocio dentro de hooks y dejar que los componentes se encarguen principalmente de representar la interfaz.
+
+## 🚀 Instalación
+
+Clona el repositorio:
+
+```bash
+git clone <URL_DEL_REPOSITORIO>
+cd ragnar
+```
+
+Instala las dependencias:
+
+```bash
+npm install
+```
+
+Crea un archivo `.env.local` con las variables necesarias para Supabase:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+NEXT_PUBLIC_FERIADOS_API_TOKEN=...
+```
+
+Inicia el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Luego abre:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🗄️ Base de datos
 
-## Learn More
+Ragnar utiliza Supabase como backend.
 
-To learn more about Next.js, take a look at the following resources:
+Las tareas se almacenan asociadas al usuario autenticado y cuentan con información como:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Título
+- Descripción
+- Estado
+- Contexto
+- Fecha de vencimiento
+- Fecha de creación
+- Fecha de actualización
+- Destacada
+- Subtareas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Las tareas están vinculadas al usuario mediante su `user_id`.
 
-## Deploy on Vercel
+## 🎯 Filosofía
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ragnar no pretende ser un dashboard lleno de información.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La intención es que sea un **espacio de trabajo personal**, donde lo importante sea saber:
+
+Más que representar una aplicación genérica de productividad, Ragnar busca ser una herramienta personal que se adapte a la forma en que realmente se trabaja y se organizan las cosas.
+
+## 📌 Estado del proyecto
+
+Ragnar se encuentra en desarrollo activo.
+
+La base de gestión de tareas, organización GTD, calendario, subtareas y autenticación ya está implementada. El proyecto continúa evolucionando a medida que se utiliza en el día a día.
+
+---
+
+**Ragnar**  
+Un espacio personal para organizar lo importante.
